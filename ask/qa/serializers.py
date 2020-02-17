@@ -6,6 +6,12 @@ class QuestionListSerializer(serializers.ModelSerializer):
         model = Question
         fields = ['title', 'text', 'added_at', 'rating', 'author', 'likes']
 
+class QuestionCreateSerializer(serializers.ModelSerializer):
+    # author = serializers.HiddenField(default=serializers.CurrentUserDefault)
+    class Meta:
+        model = Question
+        fields = ['title', 'text', 'author']
+
 class AnswerListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
